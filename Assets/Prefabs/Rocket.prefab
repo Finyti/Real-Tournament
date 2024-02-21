@@ -155,6 +155,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 1
+  destroyPrefab: {fileID: 4244449157306854073, guid: fa898652c39660044b8ca02ebd258ac0,
+    type: 3}
+  flyPrefab: {fileID: 1230244750424095155, guid: cc548bfa2956c8046b6d5cee3df6c7b3,
+    type: 3}
+  hitPrefab: {fileID: 927292816930490386, guid: 336a9d833709d44408eaa7fdb217e4b0,
+    type: 3}
+  bounceCount: 2
 --- !u!54 &54053427188498211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,5 +187,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
