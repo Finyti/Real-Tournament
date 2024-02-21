@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 54053427188498211}
   m_Layer: 3
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8448949d3e5f994598fd2b6931053a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 20
+  damage: 1
 --- !u!54 &54053427188498211
 Rigidbody:
   m_ObjectHideFlags: 0

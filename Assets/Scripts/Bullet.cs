@@ -5,17 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
+    public int damage = 1;
     void Start()
     {
         Destroy(gameObject, 3f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(speed, 0, 0);
+        print("F");
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
-    private void OnCollisionEnter(Collision collision)
+
+    void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
     }
