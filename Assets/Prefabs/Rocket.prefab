@@ -161,7 +161,7 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 927292816930490386, guid: 336a9d833709d44408eaa7fdb217e4b0,
     type: 3}
-  bounceCount: 2
+  bounceCount: 0
 --- !u!54 &54053427188498211
 Rigidbody:
   m_ObjectHideFlags: 0

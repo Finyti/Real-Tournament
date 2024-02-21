@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,6 +16,15 @@ public class Weapon : MonoBehaviour
     public bool isAutoFire = false;
     public float fireInterval = 0.5f;
     public float fireCooldown = 0;
+
+    public int bulletsPerShot = 1;
+
+    public float recoilAngle = 0;
+
+    public UnityEvent onRightClick;
+
+
+
     void Start()
     {
         
@@ -29,6 +40,10 @@ public class Weapon : MonoBehaviour
         {
             Shot();
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            onRightClick.Invoke();
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
@@ -37,7 +52,9 @@ public class Weapon : MonoBehaviour
         {
             fireCooldown -= Time.deltaTime;
         }
-        
+
+
+
     }
     public void Shot()
     {
@@ -50,7 +67,15 @@ public class Weapon : MonoBehaviour
         {
             fireCooldown = fireInterval;
             currentAmmo -= 1;
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+            for (int i = 0; i < bulletsPerShot; i++)
+            {
+                var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                var offsetX = Random.Range(-recoilAngle, recoilAngle);
+                var offsetY = Random.Range(-recoilAngle, recoilAngle);
+                bullet.transform.eulerAngles += new Vector3(offsetX, offsetY, 0);
+            }
+
         }
 
 
