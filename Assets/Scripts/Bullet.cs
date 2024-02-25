@@ -10,17 +10,28 @@ public class Bullet : MonoBehaviour
     public GameObject flyPrefab;
     public GameObject hitPrefab;
 
+    public bool trailPrefab = false;
+
+
     public int bounceCount = 3;
 
     void Start()
     {
         Destroy(gameObject, 3f);
+        if (trailPrefab)
+        {
+            var fly = Instantiate(flyPrefab, transform.position, Quaternion.identity);
+            fly.transform.parent = transform;
+        }
     }
 
     void Update()
     {
         print("F");
-        Instantiate(flyPrefab, transform.position, Quaternion.identity);
+        if (!trailPrefab)
+        {
+            Instantiate(flyPrefab, transform.position, Quaternion.identity);
+        }
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 

@@ -9,6 +9,9 @@ public class Health : MonoBehaviour
     public int health = 10;
     public bool shouldDestroy = true;
 
+    public GameObject floor;
+
+
     public GameObject damagePrefab;
     public GameObject diePrefab;
 
@@ -29,7 +32,8 @@ public class Health : MonoBehaviour
     {
         if(diePrefab != null)
         {
-            Instantiate(diePrefab, transform.position, Quaternion.identity);
+            var die = Instantiate(diePrefab, transform.position, diePrefab.transform.rotation);
+            die.GetComponent<ParticleSystem>().collision.AddPlane(floor.transform);
         }
         if (shouldDestroy)
         {
@@ -51,7 +55,8 @@ public class Health : MonoBehaviour
     {
         if (damagePrefab != null)
         {
-            Instantiate(damagePrefab, transform.position, Quaternion.identity);
+            var damage = Instantiate(damagePrefab, transform.position, damagePrefab.transform.rotation);
+            damage.GetComponent<ParticleSystem>().collision.AddPlane(floor.transform);
         }
         health -= dmg;
 

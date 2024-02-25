@@ -996,6 +996,9 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   shouldDestroy: 0
+  floor: {fileID: 0}
+  damagePrefab: {fileID: 0}
+  diePrefab: {fileID: 0}
   onDie:
     m_PersistentCalls:
       m_Calls: []
@@ -1285,6 +1288,11 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   shouldDestroy: 1
+  floor: {fileID: 1953584278}
+  damagePrefab: {fileID: 5040792305963378870, guid: 453d32567c3eeb443923a14823d869c2,
+    type: 3}
+  diePrefab: {fileID: 5040792305963378870, guid: 5cdc6094254aca9468c872d61b57c7d7,
+    type: 3}
   onDie:
     m_PersistentCalls:
       m_Calls: []
