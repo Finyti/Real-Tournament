@@ -14,10 +14,12 @@ public class PlayerUi : MonoBehaviour
 
     void Start()
     {
-
+        UpdateUI();
+        health.onDamage.AddListener(UpdateUI);
+        weapon.onShoot.AddListener(UpdateUI);
+        weapon.onReload.AddListener((ended) => UpdateUI());
     }
-
-    void Update()
+    void UpdateUI()
     {
         if (bulletText != null)
         {

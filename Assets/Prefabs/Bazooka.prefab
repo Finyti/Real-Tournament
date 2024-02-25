@@ -235,8 +235,14 @@ MonoBehaviour:
   fireInterval: 0.1
   fireCooldown: 0
   bulletsPerShot: 1
-  recoilAngle: 3
+  recoilAngle: 2
   onRightClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  onReload:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &-6811381388395867577
@@ -251,3 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd877d8046f3c3a4db7e827144b1cc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  activated: 0
+  bulletsMod: 3

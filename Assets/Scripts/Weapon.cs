@@ -22,6 +22,9 @@ public class Weapon : MonoBehaviour
     public float recoilAngle = 0;
 
     public UnityEvent onRightClick;
+    public UnityEvent onShoot;
+    public UnityEvent<bool> onReload;
+
 
 
 
@@ -67,6 +70,7 @@ public class Weapon : MonoBehaviour
         {
             fireCooldown = fireInterval;
             currentAmmo -= 1;
+            onShoot.Invoke();
 
             for (int i = 0; i < bulletsPerShot; i++)
             {
@@ -86,13 +90,15 @@ public class Weapon : MonoBehaviour
     {
         if (isReloading) return;
         if(currentAmmo == ammoReset) return;
+        onReload.Invoke(false);
         isReloading = true;
-
 
         await new WaitForSeconds(reloadTime);
 
         currentAmmo = ammoReset;
         isReloading = false;
+
+        onReload.Invoke(true);
         print("Reloaded");
     }
 }
