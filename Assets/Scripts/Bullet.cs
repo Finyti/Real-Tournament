@@ -47,6 +47,11 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+            if (!other.gameObject.CompareTag("Enemy"))
+            {
+                var hole = Instantiate(hitPrefab, transform.position, transform.rotation);
+            }
+
             Instantiate(destroyPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!23 &1573437 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23087463268523072, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 366272838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &267420423
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 20437472682476688, guid: 11aaea5348574644a9eb4f4504fcce3f,
         type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 20437472682476688, guid: 11aaea5348574644a9eb4f4504fcce3f,
         type: 3}
@@ -327,6 +333,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c096659f9b7716649acae8dbfec439d1, type: 2}
+    - target: {fileID: 114103969153859672, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      propertyPath: currentZoom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114497868231759342, guid: 11aaea5348574644a9eb4f4504fcce3f,
+        type: 3}
+      propertyPath: doubleJump
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114503055206606986, guid: 11aaea5348574644a9eb4f4504fcce3f,
         type: 3}
       propertyPath: isGrounded
@@ -969,12 +985,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!20 &1335860508 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20437472682476688, guid: 11aaea5348574644a9eb4f4504fcce3f,
-    type: 3}
-  m_PrefabInstance: {fileID: 366272838}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1556048330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f,
@@ -1528,7 +1538,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6509013706893274666}
+      objectReference: {fileID: 6509013706893274670}
     - target: {fileID: 8442194381779380929, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
       propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -1547,7 +1557,7 @@ PrefabInstance:
     - target: {fileID: 8442194381779380929, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
       propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: zoomActivate
+      value: ghostActivate
       objectReference: {fileID: 0}
     - target: {fileID: 8442194381779380929, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
@@ -1557,7 +1567,7 @@ PrefabInstance:
     - target: {fileID: 8442194381779380929, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
       propertyPath: onRightClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ZoomMode, Assembly-CSharp
+      value: GhostMode, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8442194381779380929, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
@@ -1582,9 +1592,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5768308443463477543, guid: 4e0a20c7a690717459f85a871e01745c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6509013706893274666}
+      addedObject: {fileID: 6509013706893274670}
   m_SourcePrefab: {fileID: 100100000, guid: 4e0a20c7a690717459f85a871e01745c, type: 3}
---- !u!114 &6509013706893274666
+--- !u!114 &6509013706893274670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1593,14 +1603,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1621010927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f28015f2ec1ab4b9974115a9ffbbd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ac453e06867155478d9b5186e8088c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1621010932}
-  cam: {fileID: 1335860508}
+  player: {fileID: 1556048330}
+  playerBody: {fileID: 1573437}
   activated: 0
-  cameraZoom: 1.5
-  cameraOffset: {x: 0.4, y: 0.15, z: 0}
+  isCoolDown: 0
+  coolDownTime: 10
+  skillDuration: 5
+  speedBoost: 2
+  jumpBoost: 2
+  transparencyBoost: 0.7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
