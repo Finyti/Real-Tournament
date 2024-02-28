@@ -27,7 +27,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        print("F");
         if (!trailPrefab)
         {
             Instantiate(flyPrefab, transform.position, Quaternion.identity);
@@ -51,9 +50,10 @@ public class Bullet : MonoBehaviour
             {
                 var hole = Instantiate(hitPrefab, transform.position, transform.rotation);
             }
-
+            
             Instantiate(destroyPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            
         }
 
 
