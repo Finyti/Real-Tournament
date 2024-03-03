@@ -25,6 +25,9 @@ public class Weapon : MonoBehaviour
     public UnityEvent onShoot;
     public UnityEvent<bool> onReload;
 
+    public AudioClip shootClip;
+    public AudioClip reloadClip;
+
 
 
 
@@ -56,6 +59,7 @@ public class Weapon : MonoBehaviour
             fireCooldown = fireInterval;
             currentAmmo -= 1;
             onShoot.Invoke();
+            AudioSystem.Play(shootClip, 1f);
 
             for (int i = 0; i < bulletsPerShot; i++)
             {
@@ -76,6 +80,7 @@ public class Weapon : MonoBehaviour
         if (isReloading) return;
         if(currentAmmo == ammoReset) return;
         onReload.Invoke(false);
+        AudioSystem.Play(reloadClip, 1f);
         isReloading = true;
 
         await new WaitForSeconds(reloadTime);

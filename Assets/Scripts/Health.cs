@@ -17,6 +17,9 @@ public class Health : MonoBehaviour
 
     public UnityEvent onDie;
     public UnityEvent onDamage;
+
+    public AudioClip dieClip;
+
     void Start()
     {
         
@@ -30,9 +33,10 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        if(diePrefab != null)
+        AudioSystem.Play(dieClip);
+        if (diePrefab != null)
         {
-            var die = Instantiate(diePrefab, transform.position, diePrefab.transform.rotation);
+            var die = Instantiate(diePrefab, transform.position + new Vector3(0, 2, 0), diePrefab.transform.rotation);
             die.GetComponent<ParticleSystem>().collision.AddPlane(floor.transform);
         }
         if (shouldDestroy)
@@ -55,7 +59,7 @@ public class Health : MonoBehaviour
     {
         if (damagePrefab != null)
         {
-            var damage = Instantiate(damagePrefab, transform.position, damagePrefab.transform.rotation);
+            var damage = Instantiate(damagePrefab, transform.position + new Vector3(0, 2, 0), damagePrefab.transform.rotation);
             damage.GetComponent<ParticleSystem>().collision.AddPlane(floor.transform);
         }
         health -= dmg;

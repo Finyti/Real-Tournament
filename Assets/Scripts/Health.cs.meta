@@ -3,7 +3,11 @@ guid: fd2bca2aba9653441a05f789d5b10eec
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - floor: {instanceID: 0}
+  - damagePrefab: {instanceID: 0}
+  - diePrefab: {instanceID: 0}
+  - dieClip: {fileID: 8300000, guid: cf0401fd3b195104a9546f09cbe06342, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

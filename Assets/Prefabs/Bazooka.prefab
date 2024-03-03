@@ -246,6 +246,8 @@ MonoBehaviour:
   onReload:
     m_PersistentCalls:
       m_Calls: []
+  shootClip: {fileID: 8300000, guid: 80c557609d623684495d4429bc4d9a7d, type: 3}
+  reloadClip: {fileID: 8300000, guid: 40c9ce4f25bc5164293707b946a92473, type: 3}
 --- !u!114 &-6811381388395867577
 MonoBehaviour:
   m_ObjectHideFlags: 0

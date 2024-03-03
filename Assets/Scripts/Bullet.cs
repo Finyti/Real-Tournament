@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         {
             var fly = Instantiate(flyPrefab, transform.position, Quaternion.identity);
             fly.transform.parent = transform;
+
         }
     }
 
